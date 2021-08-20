@@ -255,6 +255,7 @@ function setVolume(e){
 function play(element){
     previousIndex = songIndex
     songIndex = element.getAttribute("li-index")
+    playlist.style.height = '0'
     loadSong(songs[songIndex])
     playSong()
 }
@@ -322,3 +323,7 @@ audio.addEventListener('ended', () =>{
     }
 })
 showPlaylistBtn.addEventListener('click', showPlaylist)
+
+window.addEventListener('resize', ()=>{
+    if(window.innerWidth > 850) playlist.style.height = '100%'
+})
